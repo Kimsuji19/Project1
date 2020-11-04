@@ -1,0 +1,55 @@
+package WhiteBoard;
+
+import java.net.*;
+import java.util.*;
+
+import WhiteBoard.WhiteboardHandler;
+
+public class ChatServer {
+	private Vector<ChatHandler> handlers;
+	
+	public ChatServer (int port) {
+		try {
+			ServerSocket server = new ServerSocket (port);
+			handlers = new Vector<ChatHandler>();
+			System.out.println("ChatServer is ready.");
+			while (true) {
+				Socket client = server.accept();
+				ChatHandler c = new ChatHandler(this, client);
+				c.start();
+			}	
+		} catch(Exception e) {
+			PrintDebugMessage.print(e);
+		}
+	}
+	
+	public Object getHandler(int index) {
+		return handlers.elementAt(index);
+	}
+	
+	public void register(ChatHandler c) {
+		handlers.addElement(c);
+	}
+	
+	public void unregister(Object o) {
+		handlers.removeElement(o);
+	}
+	
+	public void broadcast (String message) {
+		synchronized (handlers) {
+			int n = handlers.size();
+			for(int i=0; i < n; i++) {
+				ChatHandler c = (ChatHandler) handlers.elementAt(i);
+				try {
+					c.println(message);
+				} catch (Exception ex) {
+					PrintDebugMessage.print(ex);
+				}
+			}
+		}
+	}
+	
+	public static void main (String args[]) {
+		ChatServer server = new ChatServer(9830);
+	}
+}

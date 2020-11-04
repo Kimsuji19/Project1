@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="WhiteBoard.WhiteboardCanvas" x="805" y="387">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="WhiteBoard.WhiteboardCanvas"
+            endpointName="canvas" kind="Simple"/>
+        <Association destinationClassName="WhiteBoard.Drawable"
+            endpointName="pictures" kind="Simple"/>
+        <Communication destinationClassName="WhiteBoard.Drawable"/>
+    </Class>
+    <Class name="WhiteBoard.Line" x="626" y="452">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="WhiteBoard.Drawable"/>
+    </Class>
+    <Class name="WhiteBoard.Circle" x="339" y="362">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="WhiteBoard.Drawable"/>
+    </Class>
+    <Class name="WhiteBoard.WhiteboardHandler" x="1159" y="402">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="WhiteBoard.WhiteboardServer"
+            endpointName="server" kind="Simple"/>
+        <Communication destinationClassName="WhiteBoard.WhiteboardServer"/>
+    </Class>
+    <Class name="WhiteBoard.WhiteboardClient" x="832" y="15">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="WhiteBoard.WhiteboardCanvas"
+            endpointName="canvas" kind="Simple"/>
+        <Association destinationClassName="WhiteBoard.Drawable"
+            endpointName="pictures" kind="Simple"/>
+        <Communication destinationClassName="WhiteBoard.WhiteboardCanvas"/>
+    </Class>
+    <Class name="WhiteBoard.Drawable" x="482" y="185">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="WhiteBoard.Rect" x="464" y="541">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="WhiteBoard.Drawable"/>
+    </Class>
+    <Class name="WhiteBoard.WhiteboardServer" x="1148" y="168">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="WhiteBoard.WhiteboardHandler"
+            endpointName="handlers" kind="Simple"/>
+        <Communication destinationClassName="WhiteBoard.WhiteboardHandler"/>
+    </Class>
+</ClassDiagram>
